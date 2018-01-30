@@ -99,5 +99,12 @@ public class IntArrayWorker
       }
     }
   }
+  
+  public int getColTotal()
+  {
+	  int colTotal = 0;
+	  
+	  return colTotal;
+  }
  
 }

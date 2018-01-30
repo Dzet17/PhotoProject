@@ -116,7 +116,19 @@ public class Picture extends SimplePicture
         rightPixel = pixels[row][width - 1 - col];
         rightPixel.setColor(leftPixel.getColor());
       }
-    } 
+ 	 Pixel[][] pixels1 = this.getPixels2D();
+ 	 Pixel bottomPixel = null;
+ 	 Pixel topPixel = null;
+ 	 for (int row1 = 0; row1 < pixels1.length; row1++)
+ 	 {
+ 	 for (int col = 0; col < width / 2; col++)
+ 	 {
+ 	 bottomPixel = pixels1[row1][col];
+ 	 topPixel = pixels1[row1][col];
+ 	 bottomPixel.setColor(topPixel.getColor());
+ 	 }
+ 	}
+    }
   }
   
   /** Mirror just part of a picture of a temple */
@@ -230,4 +242,6 @@ public class Picture extends SimplePicture
     beach.explore();
   }
   
-} // this } is the end of class Picture, put all new methods before this
+ // this } is the end of class Picture, put all new methods before this
+
+}
