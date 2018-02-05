@@ -18,6 +18,14 @@ public class PictureTester
     beach.explore();
   }
   
+  public static void testGengar()
+  {
+	  Picture beach = new Picture("CucumberIsland.jpg");
+	  beach.explore();
+	  beach.gengarFilter(beach.getHeight() / 2,  beach.getWidth() / 2);
+	  beach.explore();
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
