@@ -18,6 +18,13 @@ public class PictureTester
     beach.explore();
   }
   
+  public static void testGlitch()
+  {
+	  Picture beach = new Picture("beach.jpg")
+	  beach.explore();
+	  beach.glitchArt();
+	  beach.
+  }
   public static void testGengar()
   {
 	  Picture beach = new Picture("CucumberIsland.jpg");
@@ -67,6 +74,7 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
+	testGlitch();
     testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();

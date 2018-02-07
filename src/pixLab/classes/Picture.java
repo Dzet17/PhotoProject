@@ -242,7 +242,7 @@ public class Picture extends SimplePicture
 		beach.explore();
 	}
 
-	Pixel toPixel = null;
+	Pixel fromPixel = null;
 	Pixel[][] toPixels = this.getPixels2D();
 	Pixel[][] fromPixels = fromPic.getPixels2D();
 	for (int fromRow = 0, toRow = startRow;
@@ -263,7 +263,7 @@ public class Picture extends SimplePicture
 
 
 
-	public void gengarFilter(int startRow, int startCol)
+	public void gengarFilter(int startRow; int startCol)
 	{
 		Pixel fromPixel = null;
 		Pixel toPixel = null;
@@ -289,6 +289,41 @@ public class Picture extends SimplePicture
 			}
 			fromRow++;
 		}
+	}
+	
+		public void glitchArt()
+		{
+			Pixel [][] pixels = this.getPixels2D();
+			int shiftAmount = (int) (.33 * pixels[0].length);
+			int width = pixels[0].length;
+			Pixel leftPixel = null;
+			Pixel rightPixel = null;
+			Pixel midPixel = null;
+					
+			for (int row = 0; row < pixels.length; row++)
+			{
+				for(int col = 0; col < pixels[0].length; col++)
+				{
+					leftPixel = pixels [row][col];
+					rightPixel = pixels [row][(width - shiftAmount + col) % width];
+					midPixel = pixels [row][col + shiftAmount % width];
+					
+					Color tempColor = leftPixel.getColor();
+					Color rightColor = pixels [row][col + shiftAmount].getColor();
+					Color midColor = midPixel.getColor();
+					
+					leftPixel.setColor(rightPixel.getColor());
+					rightPixel.setColor(midColor);
+					midPixel.setColor(leftColor);
+					
+					
+				}
+			}
+			
+				
+				
+			
+		}
 
 		// this } is the end of class Picture, put all new methods before this
 
@@ -297,4 +332,4 @@ public class Picture extends SimplePicture
 		}
 	}
 }
-}
+
