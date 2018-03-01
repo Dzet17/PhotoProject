@@ -20,7 +20,7 @@ public class PictureTester
   
   public static void testGlitch()
   {
-	  Picture beach = new Picture("beach.jpg")
+	  Picture beach = new Picture("beach.jpg");
 	  beach.explore();
 	  beach.glitchArt();
 	  beach.

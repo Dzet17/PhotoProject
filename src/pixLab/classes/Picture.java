@@ -263,7 +263,7 @@ public class Picture extends SimplePicture
 
 
 
-	public void gengarFilter(int startRow; int startCol)
+	public void gengarFilter(int startRow int startCol)
 	{
 		Pixel fromPixel = null;
 		Pixel toPixel = null;
@@ -291,34 +291,27 @@ public class Picture extends SimplePicture
 		}
 	}
 	
-		public void glitchArt()
+	public void glitchArt()
+	{
+		Pixel [][] pixels = this.getPixels2D();
+		int shiftAmount = (int) (.33 * pixels[0].length);
+		int width = pixels[0].length;
+		
+		for (int row = 0; row < pixels.length; row++)
 		{
-			Pixel [][] pixels = this.getPixels2D();
-			int shiftAmount = (int) (.33 * pixels[0].length);
-			int width = pixels[0].length;
-			Pixel leftPixel = null;
-			Pixel rightPixel = null;
-			Pixel midPixel = null;
-					
-			for (int row = 0; row < pixels.length; row++)
+			Color[] currentColors = new Color[pixels[0].length];
+			
+			for (int col =0; col < pixels[row].length; col++)
 			{
-				for(int col = 0; col < pixels[0].length; col++)
-				{
-					leftPixel = pixels [row][col];
-					rightPixel = pixels [row][(width - shiftAmount + col) % width];
-					midPixel = pixels [row][col + shiftAmount % width];
-					
-					Color tempColor = leftPixel.getColor();
-					Color rightColor = pixels [row][col + shiftAmount].getColor();
-					Color midColor = midPixel.getColor();
-					
-					leftPixel.setColor(rightPixel.getColor());
-					rightPixel.setColor(midColor);
-					midPixel.setColor(leftColor);
-					
-					
-				}
+				currentColors[col] = pixels[row][col].getColor();
 			}
+			
+			for (int col = 0; col < pixels[0].length; col++)
+			{
+				pixels[row][col].setColor(currentColors[(col + shiftAmount) % width]);
+			}
+		}
+	}
 			
 				
 				
@@ -331,5 +324,5 @@ public class Picture extends SimplePicture
 
 		}
 	}
-}
+
 
